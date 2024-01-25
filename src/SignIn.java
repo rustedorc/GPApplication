@@ -15,6 +15,9 @@ public class SignIn extends javax.swing.JFrame{
     private JTextField userTf;
     private JPasswordField passwordTf;
     private JButton logInButton;
+    private JLabel titleLb;
+    private JLabel userLb;
+    private JLabel passwordLb;
 
     SignIn(){
         //models the JFrame
@@ -27,6 +30,22 @@ public class SignIn extends javax.swing.JFrame{
         SignInPanel.setBackground(new Color(47, 35, 48));
         this.add(SignInPanel);
         SignInPanel.setVisible(true);
+
+
+        //models title label
+        titleLb.setText("GP Application");
+        titleLb.setForeground(new Color(0xe0e0e0));
+        titleLb.setFont(new Font("Poppins",Font.BOLD,50));
+
+        //models user label
+        userLb.setText("User");
+        userLb.setForeground(new Color(0xe0e0e0));
+        userLb.setFont(new Font("Poppins",Font.BOLD,20));
+
+        //models password label
+        passwordLb.setText("Password");
+        passwordLb.setForeground(new Color(0xe0e0e0));
+        passwordLb.setFont(new Font("Poppins",Font.BOLD,20));
 
         //models the user text field
         userTf.setPreferredSize(new Dimension(300,60));

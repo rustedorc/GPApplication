@@ -25,7 +25,7 @@ public class Repository {
             Statement stmt = con.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_UPDATABLE);
             String sql = "SELECT * FROM LoginTbl WHERE [username] = '" + Username + "' AND [password] = '" + Password + "'";
 
-            //executes query and if the passed data from sign in page match any rows in the database it will log them in.
+            //executes query and if the passed data from sign in page matchs any rows in the database it will log them in.
             rs = stmt.executeQuery(sql);
             if (rs.next()){
                 System.out.println("Validlogin");

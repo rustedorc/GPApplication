@@ -34,7 +34,7 @@ public class MainApplicationMenu extends javax.swing.JFrame{
         welcomeLb.setFont(new Font("Poppins",Font.BOLD,50));
 
         //models new consultation button
-        newConsultationBtn.setPreferredSize(new Dimension(300,25));
+        newConsultationBtn.setPreferredSize(new Dimension(300,250));
         newConsultationBtn.setFont(new Font("Poppins",Font.PLAIN,20));
         newConsultationBtn.setBackground(new Color(0x1e1e1e));
         newConsultationBtn.setForeground(new Color(0xe0e0e0));
@@ -51,7 +51,7 @@ public class MainApplicationMenu extends javax.swing.JFrame{
         });
 
         //models view consultation button
-        viewConsultationsBtn.setPreferredSize(new Dimension(300,25));
+        viewConsultationsBtn.setPreferredSize(new Dimension(300,250));
         viewConsultationsBtn.setFont(new Font("Poppins",Font.PLAIN,20));
         viewConsultationsBtn.setBackground(new Color(0x1e1e1e));
         viewConsultationsBtn.setForeground(new Color(0xe0e0e0));
@@ -68,7 +68,7 @@ public class MainApplicationMenu extends javax.swing.JFrame{
         });
 
         //models patient records button
-        patientRecordsBtn.setPreferredSize(new Dimension(300,25));
+        patientRecordsBtn.setPreferredSize(new Dimension(300,250));
         patientRecordsBtn.setFont(new Font("Poppins",Font.PLAIN,20));
         patientRecordsBtn.setBackground(new Color(0x1e1e1e));
         patientRecordsBtn.setForeground(new Color(0xe0e0e0));
@@ -85,7 +85,7 @@ public class MainApplicationMenu extends javax.swing.JFrame{
         });
 
         //models logout button
-        logOutBtn.setPreferredSize(new Dimension(300,25));
+        logOutBtn.setPreferredSize(new Dimension(300,250));
         logOutBtn.setFont(new Font("Poppins",Font.PLAIN,20));
         logOutBtn.setBackground(new Color(0x1e1e1e));
         logOutBtn.setForeground(new Color(0xe0e0e0));
