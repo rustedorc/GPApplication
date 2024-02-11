@@ -49,6 +49,13 @@ public class MainApplicationMenu extends javax.swing.JFrame{
                 newConsultationBtn.setBackground(new Color(0x1e1e1e));
             }
         });
+        newConsultationBtn.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                new NewConsultationFrom().setLocation(MainApplicationMenu.this.getLocation());
+                MainApplicationMenu.this.dispose();
+            }
+        });
 
         //models view consultation button
         viewConsultationsBtn.setPreferredSize(new Dimension(300,250));
