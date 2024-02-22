@@ -11,8 +11,8 @@ public class MainApplicationMenu extends javax.swing.JFrame{
     int ySize =((int) tk.getScreenSize().getHeight());
     private JPanel mainPanel;
     private JButton patientRecordsBtn;
-    private JButton viewConsultationsBtn;
-    private JButton newConsultationBtn;
+    private JButton viewBookingsBtn;
+    private JButton newBookingBtn;
     private JButton logOutBtn;
     private JLabel welcomeLb;
 
@@ -34,43 +34,51 @@ public class MainApplicationMenu extends javax.swing.JFrame{
         welcomeLb.setFont(new Font("Poppins",Font.BOLD,50));
 
         //models new consultation button
-        newConsultationBtn.setPreferredSize(new Dimension(300,250));
-        newConsultationBtn.setFont(new Font("Poppins",Font.PLAIN,20));
-        newConsultationBtn.setBackground(new Color(0x1e1e1e));
-        newConsultationBtn.setForeground(new Color(0xe0e0e0));
-        newConsultationBtn.setBorder(new LineBorder(new Color(0x323232)));
-        newConsultationBtn.setFocusPainted(false);
-        newConsultationBtn.setBorder(new UiGraphics(10));
-        newConsultationBtn.addMouseListener(new java.awt.event.MouseAdapter() {
+        newBookingBtn.setPreferredSize(new Dimension(300,250));
+        newBookingBtn.setFont(new Font("Poppins",Font.PLAIN,20));
+        newBookingBtn.setBackground(new Color(0x1e1e1e));
+        newBookingBtn.setForeground(new Color(0xe0e0e0));
+        newBookingBtn.setBorder(new LineBorder(new Color(0x323232)));
+        newBookingBtn.setFocusPainted(false);
+        newBookingBtn.setBorder(new UiGraphics(10));
+        newBookingBtn.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                newConsultationBtn.setBackground(new Color(0x1a1a1a));
+                newBookingBtn.setBackground(new Color(0x1a1a1a));
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                newConsultationBtn.setBackground(new Color(0x1e1e1e));
+                newBookingBtn.setBackground(new Color(0x1e1e1e));
             }
         });
-        newConsultationBtn.addActionListener(new ActionListener() {
+        newBookingBtn.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                new NewConsultationFrom().setLocation(MainApplicationMenu.this.getLocation());
+                new NewBookingFrom().setLocation(MainApplicationMenu.this.getLocation());
+                MainApplicationMenu.this.dispose();
+            }
+        });
+
+        viewBookingsBtn.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                new ViewBookings().setLocation(MainApplicationMenu.this.getLocation());
                 MainApplicationMenu.this.dispose();
             }
         });
 
         //models view consultation button
-        viewConsultationsBtn.setPreferredSize(new Dimension(300,250));
-        viewConsultationsBtn.setFont(new Font("Poppins",Font.PLAIN,20));
-        viewConsultationsBtn.setBackground(new Color(0x1e1e1e));
-        viewConsultationsBtn.setForeground(new Color(0xe0e0e0));
-        viewConsultationsBtn.setBorder(new LineBorder(new Color(0x323232)));
-        viewConsultationsBtn.setFocusPainted(false);
-        viewConsultationsBtn.setBorder(new UiGraphics(10));
-        viewConsultationsBtn.addMouseListener(new java.awt.event.MouseAdapter() {
+        viewBookingsBtn.setPreferredSize(new Dimension(300,250));
+        viewBookingsBtn.setFont(new Font("Poppins",Font.PLAIN,20));
+        viewBookingsBtn.setBackground(new Color(0x1e1e1e));
+        viewBookingsBtn.setForeground(new Color(0xe0e0e0));
+        viewBookingsBtn.setBorder(new LineBorder(new Color(0x323232)));
+        viewBookingsBtn.setFocusPainted(false);
+        viewBookingsBtn.setBorder(new UiGraphics(10));
+        viewBookingsBtn.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                viewConsultationsBtn.setBackground(new Color(0x1a1a1a));
+                viewBookingsBtn.setBackground(new Color(0x1a1a1a));
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                viewConsultationsBtn.setBackground(new Color(0x1e1e1e));
+                viewBookingsBtn.setBackground(new Color(0x1e1e1e));
             }
         });
 

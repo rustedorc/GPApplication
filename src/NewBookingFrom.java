@@ -1,10 +1,13 @@
+import java.util.Date;
+import java.util.Calendar;
+import javax.swing.SpinnerDateModel;
 import javax.swing.*;
 import javax.swing.border.LineBorder;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class NewConsultationFrom extends javax.swing.JFrame{
+public class NewBookingFrom extends javax.swing.JFrame{
     Toolkit tk = Toolkit.getDefaultToolkit();
     int xSize =((int) tk.getScreenSize().getWidth());
     int ySize =((int) tk.getScreenSize().getHeight());
@@ -26,7 +29,7 @@ public class NewConsultationFrom extends javax.swing.JFrame{
     private JButton backBtn;
     private JLabel titleLb;
 
-    NewConsultationFrom(){
+    NewBookingFrom(){
         //models the JFrame
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
         this.setMinimumSize((new Dimension(1000,800)));
@@ -39,7 +42,7 @@ public class NewConsultationFrom extends javax.swing.JFrame{
         newConsultationPanel.setVisible(true);
 
         //models title label
-        titleLb.setText("New Consultation");
+        titleLb.setText("New Booking");
         titleLb.setForeground(new Color(0xe0e0e0));
         titleLb.setFont(new Font("Poppins",Font.BOLD,50));
 
@@ -164,7 +167,6 @@ public class NewConsultationFrom extends javax.swing.JFrame{
         commentsTf.setForeground(new Color(240, 233, 239));
         commentsTf.setFont(new Font("Poppins",Font.PLAIN,20));
         commentsTf.setBorder(null);
-        commentsTf.setBorder(new UiGraphics(10));
         commentsTf.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 commentsTf.setBackground(new Color(112, 96, 111));
@@ -174,6 +176,7 @@ public class NewConsultationFrom extends javax.swing.JFrame{
             }
         });
 
+        //models back button
         backBtn.setText("Back");
         backBtn.setPreferredSize(new Dimension(300,25));
         backBtn.setFont(new Font("Poppins",Font.PLAIN,20));
@@ -193,11 +196,12 @@ public class NewConsultationFrom extends javax.swing.JFrame{
         backBtn.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                new MainApplicationMenu().setLocation(NewConsultationFrom.this.getLocation());
-                NewConsultationFrom.this.dispose();
+                new MainApplicationMenu().setLocation(NewBookingFrom.this.getLocation());
+                NewBookingFrom.this.dispose();
             }
         });
 
+        //models consultation button
         addConsultationBtn.setText("Add Consultation");
         addConsultationBtn.setPreferredSize(new Dimension(300,25));
         addConsultationBtn.setFont(new Font("Poppins",Font.PLAIN,20));
@@ -214,6 +218,34 @@ public class NewConsultationFrom extends javax.swing.JFrame{
                 addConsultationBtn.setBackground(new Color(0x1e1e1e));
             }
         });
+        createUIComponents();
+    }
 
+    //models the jSpinner so that its in a time format hour : minute : seconds
+    //gets the current time upon opening the new consultation form
+    private void createUIComponents() {
+        Date date = new Date();
+        SpinnerDateModel sm =
+                new SpinnerDateModel(date, null, null, Calendar.HOUR_OF_DAY);
+        timeTf = new javax.swing.JSpinner(sm);
+        JSpinner.DateEditor de = new JSpinner.DateEditor(timeTf, "HH:mm:ss");
+        timeTf.setEditor(de);
+
+        //gets the text field of the editor
+        JFormattedTextField textField = ((JSpinner.DefaultEditor) timeTf.getEditor()).getTextField();
+
+        //sets the background color of the text field as jSpinners .setBackground doesn't change the color of the field
+        textField.setBackground(new Color(156, 138, 154));
+        textField.setForeground(new Color(240, 233, 239));
+        textField.setFont(new Font("Poppins", Font.PLAIN, 20));
+        textField.setBorder(null);
+        textField.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                textField.setBackground(new Color(112, 96, 111));
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                textField.setBackground(new Color(156, 138, 154));
+            }
+        });
     }
 }

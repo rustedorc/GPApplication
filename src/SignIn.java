@@ -18,6 +18,7 @@ public class SignIn extends javax.swing.JFrame{
     private JLabel titleLb;
     private JLabel userLb;
     private JLabel passwordLb;
+    private JLabel loginResponseLb;
 
     SignIn(){
         //models the JFrame
@@ -41,6 +42,12 @@ public class SignIn extends javax.swing.JFrame{
         userLb.setText("User");
         userLb.setForeground(new Color(0xe0e0e0));
         userLb.setFont(new Font("Poppins",Font.BOLD,20));
+
+        //models loginResponse label
+        loginResponseLb.setText("Login Details Incorrect!");
+        loginResponseLb.setForeground(new Color(0xe0e0e0));
+        loginResponseLb.setFont(new Font("Poppins",Font.BOLD,15));
+        loginResponseLb.setVisible(false);
 
         //models password label
         passwordLb.setText("Password");
@@ -131,8 +138,8 @@ public class SignIn extends javax.swing.JFrame{
             mainMenu.updateWelcomeMsg(userTf.getText());
             SignIn.this.dispose();
         }else{
-            //if false, displays a message in the console, but it will eventually be displayed in App
-            System.out.println("Login details are incorrect!");
+            //if false, displays a message will be displayed in App
+            loginResponseLb.setVisible(true);
         }
     }
 
