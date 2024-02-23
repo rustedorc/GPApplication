@@ -45,39 +45,16 @@ public class Repository {
 
         return null;
     }
-    private void populateTable(JTable jTable1) {
-        ResultSet rs;
+    public static ResultSet getBookingsByMonthAndYear(String month, Integer year) {
+        ResultSet rs = null;
         try {
-            // Establish connection to the database using the Repository class
-            Connection con = Repository.getConnection();
-            Statement stmt = con.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_UPDATABLE);
-            String sql = "SELECT * FROM BookingTbl";
-
-            // Execute query
+            Connection con = getConnection();
+            Statement stmt = con.createStatement();
+            String sql = "SELECT * FROM BookingTbl WHERE Month = '" + month + "' AND Year = '" + year + "'";
             rs = stmt.executeQuery(sql);
-
-            // Create a DefaultTableModel with column names
-            DefaultTableModel model = new DefaultTableModel();
-            model.setColumnIdentifiers(new String[]{"BookingID", "Month", "Year", "DoctorID", "PatientID"});
-
-            // Loop through the result set and add rows to the table model
-            while (rs.next()) {
-                model.addRow(new Object[]{
-                        rs.getString("bookingID"),
-                        rs.getString("month"),
-                        rs.getString("year"),
-                        rs.getString("doctorID"),
-                        rs.getString("patientID")
-                });
-            }
-
-            // Set the table model to table1
-            table1.setModel(model);
-
-            // Close resources
-            con.close();
         } catch (Exception e) {
-            System.out.println("Error: " + e);
+            System.out.println("Error in retrieving bookings: " + e);
         }
+        return rs;
     }
 }
