@@ -8,11 +8,7 @@ import java.awt.event.ActionListener;
 import java.sql.ResultSet;
 
 
-public class ViewBookings extends javax.swing.JFrame {
-
-    Toolkit tk = Toolkit.getDefaultToolkit();
-    int xSize = ((int) tk.getScreenSize().getWidth());
-    int ySize = ((int) tk.getScreenSize().getHeight());
+public class ViewBookings extends GPWindow {
     private JPanel viewConsultationPanel;
     private JComboBox monthDd;
     private JTextField yearTf;

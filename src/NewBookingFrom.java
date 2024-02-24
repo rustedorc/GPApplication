@@ -7,10 +7,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class NewBookingFrom extends javax.swing.JFrame{
-    Toolkit tk = Toolkit.getDefaultToolkit();
-    int xSize =((int) tk.getScreenSize().getWidth());
-    int ySize =((int) tk.getScreenSize().getHeight());
+public class NewBookingFrom extends GPWindow{
     private JTextField nameTf;
     private JTextField surnameTf;
     private JTextField addressTf;

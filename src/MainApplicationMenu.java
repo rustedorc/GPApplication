@@ -4,11 +4,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class MainApplicationMenu extends javax.swing.JFrame{
-
-    Toolkit tk = Toolkit.getDefaultToolkit();
-    int xSize =((int) tk.getScreenSize().getWidth());
-    int ySize =((int) tk.getScreenSize().getHeight());
+public class MainApplicationMenu extends GPWindow{
     private JPanel mainPanel;
     private JButton patientRecordsBtn;
     private JButton viewBookingsBtn;

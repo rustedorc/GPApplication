@@ -7,10 +7,7 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
 
-public class SignIn extends javax.swing.JFrame{
-    Toolkit tk = Toolkit.getDefaultToolkit();
-    int xSize =((int) tk.getScreenSize().getWidth());
-    int ySize =((int) tk.getScreenSize().getHeight());
+public class SignIn extends GPWindow{
     private JPanel SignInPanel;
     private JTextField userTf;
     private JPasswordField passwordTf;
