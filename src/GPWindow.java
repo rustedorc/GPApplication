@@ -1,9 +1,10 @@
 import java.awt.*;
 
-public class GPWindow extends javax.swing.JFrame{
+public abstract class GPWindow extends javax.swing.JFrame{
     Toolkit tk = Toolkit.getDefaultToolkit();
-    int xSize =((int) tk.getScreenSize().getWidth());
+    int xSize = ((int) tk.getScreenSize().getWidth());
     int ySize =((int) tk.getScreenSize().getHeight());
+
 
     GPWindow() {
         //models the JFrame
@@ -13,4 +14,8 @@ public class GPWindow extends javax.swing.JFrame{
         this.setVisible(true);
         this.setLocation((xSize/2)-(this.getWidth()/2),(ySize/2)-(this.getHeight()/2));
     }
+
+    public abstract void setupPanel();
+
+    //public abstract void placeComponents();
 }

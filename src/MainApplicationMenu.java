@@ -13,10 +13,7 @@ public class MainApplicationMenu extends GPWindow{
     private JLabel welcomeLb;
 
     MainApplicationMenu(){
-        mainPanel.setForeground(new Color(255, 255, 255));
-        mainPanel.setBackground(new Color(47, 35, 48));
-        this.add(mainPanel);
-        mainPanel.setVisible(true);
+        setupPanel();
 
         //models the welcome label
         welcomeLb.setText("Welcome");
@@ -111,6 +108,15 @@ public class MainApplicationMenu extends GPWindow{
                 MainApplicationMenu.this.dispose();
             }
         });
+    }
+
+    @Override
+    public void setupPanel() {
+        mainPanel.setForeground(new Color(255, 255, 255));
+        mainPanel.setBackground(new Color(47, 35, 48));
+        this.add(mainPanel);
+        mainPanel.setVisible(true);
+
     }
 
     //this method updates welcome message with the users name

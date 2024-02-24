@@ -18,12 +18,7 @@ public class SignIn extends GPWindow{
     private JLabel loginResponseLb;
 
     SignIn(){
-        SignInPanel.setForeground(new Color(255, 255, 255));
-        SignInPanel.setBackground(new Color(47, 35, 48));
-        this.add(SignInPanel);
-        SignInPanel.setVisible(true);
-
-
+        setupPanel();
         //models title label
         titleLb.setText("GP Application");
         titleLb.setForeground(new Color(0xe0e0e0));
@@ -107,6 +102,13 @@ public class SignIn extends GPWindow{
             }
         });
 
+    }
+    @Override
+    public void setupPanel() {
+        SignInPanel.setForeground(new Color(255, 255, 255));
+        SignInPanel.setBackground(new Color(47, 35, 48));
+        this.add(SignInPanel);
+        SignInPanel.setVisible(true);
     }
     public boolean loginLogic(String username, String password) throws NoSuchAlgorithmException {
         //message digest library used to hash password using SHA-256

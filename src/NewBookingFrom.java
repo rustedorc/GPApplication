@@ -27,10 +27,7 @@ public class NewBookingFrom extends GPWindow{
     private JLabel titleLb;
 
     NewBookingFrom(){
-        newConsultationPanel.setForeground(new Color(255, 255, 255));
-        newConsultationPanel.setBackground(new Color(47, 35, 48));
-        this.add(newConsultationPanel);
-        newConsultationPanel.setVisible(true);
+        setupPanel();
 
         //models title label
         titleLb.setText("New Booking");
@@ -210,6 +207,14 @@ public class NewBookingFrom extends GPWindow{
             }
         });
         createUIComponents();
+    }
+
+    @Override
+    public void setupPanel() {
+        newConsultationPanel.setForeground(new Color(255, 255, 255));
+        newConsultationPanel.setBackground(new Color(47, 35, 48));
+        this.add(newConsultationPanel);
+        newConsultationPanel.setVisible(true);
     }
 
     //models the jSpinner so that its in a time format hour : minute : seconds
