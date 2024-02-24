@@ -1,17 +1,19 @@
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
 
 public class Repository {
-    private static final String DatabaseLocation = System.getProperty("user.dir") + "\\Database.accdb";
+    private static final Path DatabaseLocation = Paths.get(System.getProperty("user.dir") ,"Database.accdb");
 
     //establishes connection with the access database using a library called ucanacess
     public static Connection getConnection() {
         try {
-            Connection con = DriverManager.getConnection("jdbc:ucanaccess://" + DatabaseLocation, "", "");
+            Connection con = DriverManager.getConnection("jdbc:ucanaccess://" + DatabaseLocation);
             return con;
 
         } catch (Exception e) {
