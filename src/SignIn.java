@@ -18,12 +18,6 @@ public class SignIn extends GPWindow{
     private JLabel loginResponseLb;
 
     SignIn(){
-        //models the JFrame
-        this.setDefaultCloseOperation(EXIT_ON_CLOSE);
-        this.setMinimumSize((new Dimension(1000,800)));
-        this.setResizable(false);
-        this.setVisible(true);
-        this.setLocation((xSize/2)-(this.getWidth()/2),(ySize/2)-(this.getHeight()/2));
         SignInPanel.setForeground(new Color(255, 255, 255));
         SignInPanel.setBackground(new Color(47, 35, 48));
         this.add(SignInPanel);
@@ -114,17 +108,21 @@ public class SignIn extends GPWindow{
         });
 
     }
-    public void Login() throws NoSuchAlgorithmException {
+    public boolean loginLogic(String username, String password) throws NoSuchAlgorithmException {
         //message digest library used to hash password using SHA-256
         MessageDigest messageDigest = MessageDigest.getInstance("SHA-256");
 
         //gets the string value of the password text field and puts it through the hash algorithm
-        messageDigest.update(String.valueOf(passwordTf.getPassword()).getBytes());
-        String HashedStr = new String(messageDigest.digest());
+        messageDigest.update(password.getBytes());
+        String hashedPassword = new String(messageDigest.digest());
+
+        return Repository.login(username, hashedPassword);
+    }
+    public void Login() throws NoSuchAlgorithmException {
 
         //calls login method in the Repository and passes the values in the user text field and the hashed password
         //then stores is as a boolean result
-        Boolean result = Repository.login(userTf.getText(), HashedStr);
+        Boolean result = loginLogic(userTf.getText(), String.valueOf(passwordTf.getPassword()));
 
         //if result comes back as true, it then runs the Main application and disposes of the Sign in JFrame
         if (result == true){

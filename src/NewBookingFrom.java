@@ -27,12 +27,6 @@ public class NewBookingFrom extends GPWindow{
     private JLabel titleLb;
 
     NewBookingFrom(){
-        //models the JFrame
-        this.setDefaultCloseOperation(EXIT_ON_CLOSE);
-        this.setMinimumSize((new Dimension(1000,800)));
-        this.setResizable(false);
-        this.setVisible(true);
-        this.setLocation((xSize/2)-(this.getWidth()/2),(ySize/2)-(this.getHeight()/2));
         newConsultationPanel.setForeground(new Color(255, 255, 255));
         newConsultationPanel.setBackground(new Color(47, 35, 48));
         this.add(newConsultationPanel);
